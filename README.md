@@ -1,14 +1,14 @@
-#Lab 3 lecture answer review
-1. 
-##Explain what is meant by the stream abstraction. What is the relationship between streams and the observer pattern?  What are streams useful for modeling and when might you use them in Rich Web development?
+# Lab 3 lecture answer review
+
+## 1. Explain what is meant by the stream abstraction. What is the relationship between streams and the observer pattern?  What are streams useful for modeling and when might you use them in Rich Web development?
 
 Streams are an abstraction for some data which could be, but does not have to be present now, and could, but does not have to arrive in the future. 
 Streams implement a design pattern called the observable pattern which offers a subscription model in which objects subscribe to an event and get notified when the event occurs.
 Streams are used to model all application states, providing a unified abstraction of everything, we do this because callbacks and promises have drawbacks callbacks fall short when we have a ui with widgets that interact with each other or processes that consume from several downstream services. Promises fall short as they are unable to handle data sources that provide more than one value. Steams are used to resolve this synchronization problem.
 
 
-2. 
-##Assume that you are building an interface to an API in your Rich Web App. Describe in detail how you could use the RxJS library to handle asynchronous network responses to API requests. In your opinion, what are the benefits to using a streams library for networking over, say, promises? And what do you think are the downsides?
+ 
+## 2.Assume that you are building an interface to an API in your Rich Web App. Describe in detail how you could use the RxJS library to handle asynchronous network responses to API requests. In your opinion, what are the benefits to using a streams library for networking over, say, promises? And what do you think are the downsides?
 
 To do asynchronous responses to api requests you could use promises or ajax
 Promise:
@@ -38,8 +38,8 @@ Observables vs Promises:
   3. Ability to use multiple sources.
   A promise we only get one event handling to occur whereas observables can have multiple events from the same source, which could introduce the problem of if you are displaying and updating the data, you could have weird overlap problems where it swaps between sources if your displaying to the same variable on the page, but it also gives you the option to use multiple sources.
 
-3. 
-##Consider three asynchronous tasks, A,B & C. What are the consequences of these functions sharing global state? What is a good practice to alleviate any problems associated with this?
+
+## 3. Consider three asynchronous tasks, A,B & C. What are the consequences of these functions sharing global state? What is a good practice to alleviate any problems associated with this?
 
 Global states are easily overwritten by other scripts. Global states are not necessarily bad and not even a security concern, but it shouldn’t overwrite values of another variable, if you do modify them, you no longer can have certainty about the output you’ll get.
 To alleviate the problems associated with this we should instead use local variables and wrap the code in closures. 
